@@ -11,8 +11,7 @@ COPY . /demo
 
 RUN mvn clean install -U
 
-
-
+ENV DATABASE="localhost"
 ENTRYPOINT ["java", "-jar"]
 CMD [ "/demo/target/docker-demo.jar"]
 

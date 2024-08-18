@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: docker-demo
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DATABASE:localhost}:3306/shivaanta
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: none
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master.xml
+server:
+  port: 8081

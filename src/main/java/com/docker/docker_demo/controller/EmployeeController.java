@@ -5,6 +5,7 @@ import com.docker.docker_demo.entities.Employee;
 import com.docker.docker_demo.service.EmployeeService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/employee/v1")
 @RequiredArgsConstructor
 @Validated
+@Slf4j
 public class EmployeeController {
 
   private final EmployeeService employeeService;
@@ -58,6 +60,8 @@ public class EmployeeController {
   @PostMapping("/")
   public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee)
   {
+
+    log.info("Employee: {}", employee.toString());
     return ResponseEntity.ok().body(employeeService.saveEmployee(employee));
   }
 
